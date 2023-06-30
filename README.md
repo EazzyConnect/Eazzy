@@ -1,2 +1,2 @@
 # Eazzy
-First repository 
+Repo
