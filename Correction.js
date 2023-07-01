@@ -1,36 +1,31 @@
-// i. Write an if statement that checks if a variable age is greater than or equal to 18. If true, print "You are an adult."
-// ii. Write an if statement that checks if a variable number is positive. If true, print "The number is positive." Otherwise, print "The number is not positive."
-// iii) Write an if statement that checks if a variable fruit is equal to "apple". If true, print "It's an apple." If false, print "It's not an apple."
-// iv) Write a program that iterates over an array of numbers and prints "Even" if the number is even, and "Odd" if the number is odd.
-
 
 // Question 1
-const age = 19
-if(age >= 18){console.log("You are an adult");}
-
-
-// Question 2
-let number = 10
-// If variable number above changes to any number less than 1, you'll get the else statement result.
-if(number > 0){
-  console.log("The number is positive.");
+let age = 9;
+if (age >= 80){
+ console.log("adult");
+}else if (age > 18){
+ console.log("old");
+}else if (age < 18){
+ console.log("Can't apply");
 }
-else{
- console.log("The number is not positive.");}
 
-
-//  Question 3
-let fruit = "apple"
-// If variable fruit changes to another type of fruit, you'll get the else statement
-if(fruit === "apple"){
-  console.log("It's an apple.");
+// Date and Greetings
+const date = new Date ()
+const hour = date.getHours()
+console.log(hour);
+function getHours (){
+ if(hour < 12){
+  return "Good Morning"
+ }else if(hour >= 12 && hour < 18){
+  return "Good Afternoon"
+ }else {
+  return "Good evening"
+ }
 }
-else{
- console.log("It's not an apple.");}
+console.log(getHours());
 
- 
-//  Question 4
- // for loop method is applied here.
+
+// Question 4
 const numArr =[];
 for(let i = 1; i <= 100; i++){
  numArr.push(i)
@@ -41,9 +36,9 @@ for(let i = 1; i <= 100; i++){
  }
 }
 
-// Question 5 (json placeholder) Extraction of data
 
-let userInfo = [
+// Question 5
+let users = [
   {
     "id": 1,
     "name": "Leanne Graham",
@@ -275,17 +270,55 @@ let userInfo = [
     }
   }
 ];
-const userNames = [];
-const street =[];
+const nameArr = [];
+const streetNames = [];
 
-// Names 
-for (let i = 0; i < userInfo.length; i++) {
- userNames.push(userInfo[i].name)}
-console.log(userNames);
-// Street
-for (let i =0; i < userInfo.length; i++) {
- street.push(userInfo[i].address.street)}
-console.log(street);
+for (let i = 0; i < users.length; i++) {
+ const element = users[i];
+ nameArr.push(element.name)
+ streetNames.push(element.address.street)
+}
+console.log(nameArr);
+console.log(streetNames);
 
-// console.log(userInfo[1].name);
-// console.log(userInfo.length);
+// using normal function to add numbers
+function sumNum (a,b){
+ return a + b
+}
+
+console.log (sumNum(12, 6))
+
+// using normal function to find area of triangle
+function areaOfTriange (b,h){
+ const result = 0.5 * b * h;
+ return result
+}
+console.log(areaOfTriange(7,6));
+
+// using arrow function to find area of triangle
+const areaOfTriange2 = (base, height) => 0.5 * base * height;
+console.log(areaOfTriange2(7, 60));
+
+// sum of array: Normal function
+function newArr (arr){
+ let sum = 0;
+ for (let i = 0; i < arr.length; i++) {
+  const elem = arr[i];
+  sum += elem
+ }
+ return sum
+}
+
+console.log(newArr([2,7,3,4]));
+
+// sum of array: Arrow function
+const numbArr = [2,7,3]
+const total = numbArr.reduce((acc, curr) => acc + curr, 0)
+console.log(total);
+
+// sum of array: Normal function using array method (.reduce)
+const total2 = numbArr.reduce(function addAll (acc,curr){
+ let sum = 0
+ return sum += (acc + curr)
+})
+console.log(total2)
